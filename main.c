@@ -23,7 +23,7 @@ int main(int argc, char const *argv[]) {
             // printf("%s", line);
             switch (line[0]){
                 case 'G':
-                    scrapeCords(line); //Dynamically adjust size of tower/maybe dynamically size skirt?
+                    if (line[1] == '1') scrapeCords(line);
                     break;
 
                 case 'T':       // Tool change
@@ -31,6 +31,10 @@ int main(int argc, char const *argv[]) {
                     // changeMaterial();
                     // drawTower();
                     break;
+
+                case 'M':
+                    //stop scraping codantes
+                    //end homing moves will throw off tower placement
 
                 case ';':       //Get info about user config
                     // scrapeConfig(line)
@@ -45,6 +49,7 @@ int main(int argc, char const *argv[]) {
         perror("File failed to open\n");
     }
     printf("Xmin: %f    |    Xmax: %f\n", x_min, x_max );
+    printf("Ymin: %f    |    Ymax: %f\n", y_min, y_max );
     return 0;
 }
 
@@ -64,16 +69,17 @@ void scrapeCords(char line[]){
             case 'X':
                 *feild++;
                 num = strtof(feild, NULL);
-                //printf("feild:%s    |     Num:%f\n", feild, num);
                 if (num > x_max) x_max = num;
                 else if (num < x_min) x_min = num;
-                // sleep(1);
                 break;
             case 'Y':
-                //printf("Found a Y\n");
+                *feild++;
+                num = strtof(feild, NULL);
+                if (num > y_max) y_max = num;
+                else if (num < y_min) y_min = num;
                 break;
             case 'Z':
-                printf("found a z\n");
+                
                 break;
         } //switch
         
