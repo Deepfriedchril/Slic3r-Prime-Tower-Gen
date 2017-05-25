@@ -3,50 +3,80 @@
 #include <stdlib.h>
 #include "sptg_file.h"
 
-float x_min = 150;
-float x_max = 150;
-float y_min = 150;
-float y_max = 150;
+float   x_min = 1000;
+float   x_max = 0;
+float   y_min = 1000;
+float   y_max = 0;
+uint8_t scrapeEN = 0;
+uint8_t pastStart = 0;
+uint8_t deferOutput = 0;
+uint8_t emptyDeffer = 0;
 
 void scrapeCords(char line[]);
+void parseComment(char line[]);
+
 
 
 
 int main(int argc, char const *argv[]) {
-    FILE *inputFile = fopen(argv[1], "r+");
+    FILE *inputFile = fopen(argv[1], "r");
+    FILE *outputFile = fopen(".tmp", "w");
     char line[200];
+    char templine[201];
+    char deferbuff[100][200];
+    uint8_t counter = 0;
+    uint8_t temp = 0;
     uint16_t lineBuffer_size = 200;
-    char nl = 0;
+
 
     if (inputFile != NULL){
         while ( fgets(line, 200, inputFile) != NULL){
-            // printf("%s", line);
-            if (scrape){
-                switch (line[0]){
-                    case 'G':
-                        if (line[1] == '1') scrapeCords(line);
-                        break;
+            
+            switch (line[0]){
+                case 'G':
+                    if (line[1] == '1' && scrapeEN) scrapeCords(line);
+                    break;
 
-                    case 'T':       // Tool change
-                        // moveToPosition();
-                        // changeMaterial();
-                        // drawTower();
-                        break;
+                case 'T':       // Tool change
+                    // moveToPosition();
+                    // changeMaterial();
+                    // drawTower();
+                    break;
 
-                    case 'M':
-                        if (line[3] == '4'){
-                            
-                        }
-                        //end homing moves will throw off tower placement
+                case 'M':
+                    if ( (line[3] == '9') && (pastStart == 1) ){    
+                        // remove line by putting a ; in front
+                        strcpy(&templine[1], line);
+                        templine[0] = ';';
+                        strcpy(line, templine);
+                    }
+                    break;
 
-                    case ';':       //Get info about user config
-                        // scrapeConfig(line)
-                        break;
+                case ';':       //Get info about user config
+                    parseComment(line);
+                    break;
 
-                    // default:
+                // default:
 
-                } //switch
-            } //if
+            } //switch
+            if (deferOutput){
+                sprintf(deferbuff[counter], line);
+                counter++;
+            }
+            else if ( emptyDeffer && (deferOutput == 0) ){
+                for(temp; temp <= counter; temp++){
+                    //printf("%d: %s\n", temp, deferbuff[temp]);
+                    fputs(deferbuff[temp], outputFile);
+                }
+
+                emptyDeffer = 0;
+                counter = 0;
+                temp = 0;
+                fputs(line, outputFile);
+            }
+
+            else fputs(line, outputFile); // Write any changes made to a line to output
+
         } //while
     } //if
     else{
@@ -54,18 +84,48 @@ int main(int argc, char const *argv[]) {
     }
     printf("Xmin: %f    |    Xmax: %f\n", x_min, x_max );
     printf("Ymin: %f    |    Ymax: %f\n", y_min, y_max );
+    
+    fclose(inputFile);
+    fclose(outputFile);
     return 0;
 }
 
 // tower based on the size of the melt zone of hot end?
 
 
+void parseComment(char line[]){
+    char linecpy[200];
+    strcpy(linecpy, line);
+    if ( (strcmp(linecpy, ";START\n")) == 0){
+        pastStart = 1;
+    }
+    else if ( (strcmp(linecpy, ";STARTEND\n")) == 0){
+        scrapeEN = 1;
+    }
+    else if ( (strcmp(linecpy, ";END\n")) == 0){
+        scrapeEN = 0;
+    }
+    else if ( (strcmp(linecpy, ";EEND\n")) == 0){
+        deferOutput = 1;
+    }
+    else if ( (strcmp(linecpy, ";ESTARTEND\n")) == 0){
+        deferOutput = 0;
+    }
+    else if ( linecpy[1] == 'T') {
+        emptyDeffer = 1;
+    }
+}
+
+
 
 void scrapeCords(char line[]){
     const char key[2] = " ";
-    char *feild = strtok(line, key);
     float num = 0;
     char* temppter = NULL;
+    char linecpy[200];
+    strcpy(linecpy, line);
+
+    char *feild = strtok(linecpy, key);
 
     while (feild != NULL){
         //printf("%s\n", feild);
@@ -88,9 +148,8 @@ void scrapeCords(char line[]){
         } //switch
         
         feild = strtok(NULL, key);
-    } //while
-    
-}
+    } //while    
+} // scrapeCords
 
 
 //G1 X70.761 Y74.864 E0.01429
