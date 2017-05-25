@@ -81,6 +81,7 @@ int main(int argc, char const *argv[]) {
     } //if
     else{
         perror("File failed to open\n");
+        return -1;
     }
     printf("Xmin: %f    |    Xmax: %f\n", x_min, x_max );
     printf("Ymin: %f    |    Ymax: %f\n", y_min, y_max );
