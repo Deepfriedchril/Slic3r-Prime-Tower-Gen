@@ -21,28 +21,32 @@ int main(int argc, char const *argv[]) {
     if (inputFile != NULL){
         while ( fgets(line, 200, inputFile) != NULL){
             // printf("%s", line);
-            switch (line[0]){
-                case 'G':
-                    if (line[1] == '1') scrapeCords(line);
-                    break;
+            if (scrape){
+                switch (line[0]){
+                    case 'G':
+                        if (line[1] == '1') scrapeCords(line);
+                        break;
 
-                case 'T':       // Tool change
-                    // moveToPosition();
-                    // changeMaterial();
-                    // drawTower();
-                    break;
+                    case 'T':       // Tool change
+                        // moveToPosition();
+                        // changeMaterial();
+                        // drawTower();
+                        break;
 
-                case 'M':
-                    //stop scraping codantes
-                    //end homing moves will throw off tower placement
+                    case 'M':
+                        if (line[3] == '4'){
+                            
+                        }
+                        //end homing moves will throw off tower placement
 
-                case ';':       //Get info about user config
-                    // scrapeConfig(line)
-                    break;
+                    case ';':       //Get info about user config
+                        // scrapeConfig(line)
+                        break;
 
-                // default:
+                    // default:
 
-            } //switch
+                } //switch
+            } //if
         } //while
     } //if
     else{
