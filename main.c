@@ -114,6 +114,13 @@ void parsecomment(char *line){
 }
 
 
+/**
+ * @brief      Determines how close you can place a prime tower.
+ * 
+ * This method will most likely break down when more than one object is on the bed.
+ *
+ * @param      line  The line to scrape
+ */
 void scrapecords(char *line){
     const char key[2] = " ";
     float num = 0;
@@ -171,7 +178,12 @@ void add_tail(node_t *head, char *val){
 }
 
 
-
+/**
+ * @brief      Dumps the list out before the current line.
+ *
+ * @param      outputFile  The output file
+ * @param      head        The head of the list
+ */
 void flushlist(FILE *outputFile, node_t *head){
     node_t *temp = head->next;
     while (head->next != NULL){
