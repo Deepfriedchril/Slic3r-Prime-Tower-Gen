@@ -60,10 +60,9 @@ void main(int argc, char const *argv[]){
     FILE *inputFile, *outputFile;               /*<I/O file pointers.*/
     char line[LINELENGTH];                      /*<Line buffer.*/
    
-    node_t *head = NULL;
-    // head = malloc(sizeof(node_t));
-    // head->next = NULL;
-    // strcpy(head->data, "\0");
+    node_t head;
+    head.next = NULL;
+    strcpy(head.data, "\0");
 
     inputFile  = fopen(argv[1], "r");
     if (inputFile == NULL) exit(1);
@@ -86,10 +85,11 @@ void main(int argc, char const *argv[]){
 
         } //switch
 
-        if      (pos == MATBEGIN) add_tail(head, line);       // Defer nozzle switching gcode
+        if      (pos == MATBEGIN) add_tail(&head, line);       // Defer nozzle switching gcode
         else if (pos == FLUSH){
-            flushlist(outputFile, head); // Flush after printer moved to prime tower
+            flushlist(outputFile, &head); // Flush after printer moved to prime tower
             pos = NORMAL;
+            fputs(line, outputFile);      // Don't forget current line
         }
         else                      fputs(line, outputFile);      // Copy lines out otherwise
     } //while
@@ -153,33 +153,31 @@ void scrapecords(char *line){
  * @param[in]  val   The value to store.
  */
 void add_tail(node_t *head, char *val){
-    node_t *current = head;
-    if (head != NULL){
-    while (current->next != NULL){
-        current = current->next;
-    }
-    current->next = malloc(sizeof(node_t));
-    strcpy(current->next->data, val);
-    current->next->next = NULL;
+    node_t *current = head->next;
+    if (head->next != NULL){
+
+        while (current->next != NULL){
+            current = current->next;
+        }
+        current->next = malloc(sizeof(node_t));
+        strcpy(current->next->data, val);
+        current->next->next = NULL;
     }
     else{
-        printf("making new head\n");
-        head = malloc(sizeof(node_t));
-        strcpy(head->data, val);
-        head->next = NULL;   
+        head->next = malloc(sizeof(node_t));
+        strcpy(head->next->data, val);
+        head->next->next = NULL;   
     }
 }
 
 
 
 void flushlist(FILE *outputFile, node_t *head){
-    node_t *temp = head;
-    printf("in flush\n");
+    node_t *temp = head->next;
     while (head->next != NULL){
-        printf("%s\n", head->data);
-        fputs(head->data, outputFile);
-        head = head->next;
+        fputs(head->next->data, outputFile);
+        head->next = head->next->next;
         free(temp);
-        temp = head;
+        temp = head->next;
     }
 }
