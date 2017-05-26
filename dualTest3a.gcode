@@ -488,12 +488,6 @@ G0 X92.245 Y88.002
 ;TYPE:SKIN
 G1 F1800 X92.395 Y88.152 E60.64751
 G92 E0
-;MATEND
-;109 S260
-G0 F3600 X92.395 Y88.152 Z0.3
-G1 F1500 E-0.8
-G0 F3600 X92.395 Y98.152
-G0 X96.948 Y105.099
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -509,6 +503,12 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S260
+G0 F3600 X92.395 Y88.152 Z0.3
+G1 F1500 E-0.8
+G0 F3600 X92.395 Y98.152
+G0 X96.948 Y105.099
 ;TYPE:SKIRT
 G1 F1500 E0
 G1 F1800 X91.957 Y106.744 E0.26218
@@ -1288,16 +1288,6 @@ G1 F1800 X114.736 Y82.687 E125.3372
 G1 X114.806 Y82.617
 G0 F5400 X114.431 Y82.689
 G92 E0
-;MATEND
-;109 S255
-M106 S51
-G0 X114.431 Y82.689 Z0.5
-G1 F1500 E-2
-G0 F5400 X114.431 Y92.689
-G0 X102.057 Y97.411
-G0 X101.343 Y97.411
-G0 X69.8 Y90.2
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -1313,6 +1303,16 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M106 S51
+G0 X114.431 Y82.689 Z0.5
+G1 F1500 E-2
+G0 F5400 X114.431 Y92.689
+G0 X102.057 Y97.411
+G0 X101.343 Y97.411
+G0 X69.8 Y90.2
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F2700 X69.8 Y109.8 E0.6519
@@ -2003,12 +2003,6 @@ G0 X92.245 Y88.002
 ;TYPE:SKIN
 G1 F1800 X92.395 Y88.152 E52.79158
 G92 E0
-;MATEND
-;109 S255
-G1 F1500 E-0.8
-G0 F7200 X92.395 Y89.213 Z0.7
-G0 X70.566 Y94.888
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -2024,6 +2018,12 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+G1 F1500 E-0.8
+G0 F7200 X92.395 Y89.213 Z0.7
+G0 X70.566 Y94.888
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.576 Y95.878 E0
@@ -2635,18 +2635,6 @@ G1 F1800 X114.736 Y82.687 E80.62423
 G1 X114.806 Y82.617
 G0 F7200 X114.431 Y82.689
 G92 E0
-;MATEND
-;109 S255
-M104 T1 S255
-G1 F1500 E-2
-G0 F7200 X115.608 Y83.865 Z0.9
-G0 X116.421 Y83.047
-G0 X116.421 Y82.333
-G0 X102.004 Y67.916
-G0 X81.543 Y67.887
-G0 X81.039 Y68.391
-G0 X69.8 Y90.2
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -2662,6 +2650,18 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M104 T1 S255
+G1 F1500 E-2
+G0 F7200 X115.608 Y83.865 Z0.9
+G0 X116.421 Y83.047
+G0 X116.421 Y82.333
+G0 X102.004 Y67.916
+G0 X81.543 Y67.887
+G0 X81.039 Y68.391
+G0 X69.8 Y90.2
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.8 Y109.8 E0.6519
@@ -3235,13 +3235,6 @@ G0 X91.429 Y87.752
 G1 F1800 X91.279 Y87.602 E43.91131
 G0 F7200 X91.221 Y87.548
 G92 E0
-;MATEND
-;109 S255
-M104 T0 S255
-G1 F1500 E-0.8
-G0 F7200 X91.221 Y89.213 Z1.1
-G0 X70.566 Y99.433
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -3257,6 +3250,13 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M104 T0 S255
+G1 F1500 E-0.8
+G0 F7200 X91.221 Y89.213 Z1.1
+G0 X70.566 Y99.433
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.576 Y100.423 E0
@@ -3745,13 +3745,6 @@ G1 X87.734 Y82.69 E46.55748
 G0 F7200 X87.875 Y82.549
 G0 X88.783 Y82.609
 G92 E0
-;MATEND
-;109 S255
-M104 T1 S255
-G1 F1500 E-2
-G0 F7200 X88.783 Y89.213 Z1.3
-G0 X69.8 Y90.2
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -3767,6 +3760,13 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M104 T1 S255
+G1 F1500 E-2
+G0 F7200 X88.783 Y89.213 Z1.3
+G0 X69.8 Y90.2
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.8 Y109.8 E0.6519
@@ -4286,13 +4286,6 @@ G0 X91.429 Y87.752
 G1 F1800 X91.279 Y87.602 E34.77392
 G0 F7200 X91.221 Y87.548
 G92 E0
-;MATEND
-;109 S255
-M104 T0 S255
-G1 F1500 E-0.8
-G0 F7200 X91.221 Y89.213 Z1.5
-G0 X70.566 Y105.11
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -4308,6 +4301,13 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M104 T0 S255
+G1 F1500 E-0.8
+G0 F7200 X91.221 Y89.213 Z1.5
+G0 X70.566 Y105.11
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.576 Y104.12 E0
@@ -4802,18 +4802,6 @@ G1 X115.56 Y82.69 E46.60323
 G0 F7200 X115.419 Y82.831
 G0 X114.512 Y82.772
 G92 E0
-;MATEND
-;109 S255
-M104 T1 S255
-G1 F1500 E-2
-G0 F7200 X115.607 Y83.866 Z1.7
-G0 X116.421 Y83.047
-G0 X116.421 Y82.333
-G0 X102.004 Y67.916
-G0 X81.543 Y67.887
-G0 X81.039 Y68.391
-G0 X69.8 Y90.2
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -4829,6 +4817,18 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M104 T1 S255
+G1 F1500 E-2
+G0 F7200 X115.607 Y83.866 Z1.7
+G0 X116.421 Y83.047
+G0 X116.421 Y82.333
+G0 X102.004 Y67.916
+G0 X81.543 Y67.887
+G0 X81.039 Y68.391
+G0 X69.8 Y90.2
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.8 Y109.8 E0.6519
@@ -5326,15 +5326,6 @@ G0 X100.577 Y69.181
 G1 F1800 X100.678 Y69 E34.88351
 G0 F7200 X100.621 Y68.942
 G92 E0
-;MATEND
-;109 S255
-M104 T0 S255
-G1 F1500 E-0.8
-G0 F7200 X100.621 Y67.883 Z1.9
-G0 X81.543 Y67.887
-G0 X81.039 Y68.391
-G0 X70.566 Y109.655
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -5350,6 +5341,15 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M104 T0 S255
+G1 F1500 E-0.8
+G0 F7200 X100.621 Y67.883 Z1.9
+G0 X81.543 Y67.887
+G0 X81.039 Y68.391
+G0 X70.566 Y109.655
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.576 Y108.665 E0
@@ -5830,13 +5830,6 @@ G1 X87.734 Y82.69 E46.63704
 G0 F7200 X87.875 Y82.549
 G0 X88.783 Y82.609
 G92 E0
-;MATEND
-;109 S255
-M104 T1 S255
-G1 F1500 E-2
-G0 F7200 X88.783 Y89.213 Z2.1
-G0 X69.8 Y90.2
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -5852,6 +5845,13 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M104 T1 S255
+G1 F1500 E-2
+G0 F7200 X88.783 Y89.213 Z2.1
+G0 X69.8 Y90.2
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.8 Y109.8 E0.6519
@@ -6351,15 +6351,6 @@ G0 X100.577 Y69.181
 G1 F1800 X100.678 Y69 E35.00893
 G0 F7200 X100.621 Y68.942
 G92 E0
-;MATEND
-;109 S255
-M104 T0 S255
-G1 F1500 E-0.8
-G0 F7200 X100.621 Y67.883 Z2.3
-G0 X81.543 Y67.887
-G0 X81.039 Y68.391
-G0 X70.566 Y93.979
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -6375,6 +6366,15 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M104 T0 S255
+G1 F1500 E-0.8
+G0 F7200 X100.621 Y67.883 Z2.3
+G0 X81.543 Y67.887
+G0 X81.039 Y68.391
+G0 X70.566 Y93.979
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.576 Y94.969 E0
@@ -6855,13 +6855,6 @@ G1 X87.734 Y82.69 E46.58634
 G0 F7200 X87.875 Y82.549
 G0 X88.783 Y82.609
 G92 E0
-;MATEND
-;109 S255
-M104 T1 S255
-G1 F1500 E-2
-G0 F7200 X88.783 Y89.213 Z2.5
-G0 X69.8 Y90.2
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -6877,6 +6870,13 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M104 T1 S255
+G1 F1500 E-2
+G0 F7200 X88.783 Y89.213 Z2.5
+G0 X69.8 Y90.2
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.8 Y109.8 E0.6519
@@ -7380,15 +7380,6 @@ G0 X100.577 Y69.181
 G1 F1800 X100.678 Y69 E35.43099
 G0 F7200 X100.621 Y68.942
 G92 E0
-;MATEND
-;109 S255
-M104 T0 S255
-G1 F1500 E-0.8
-G0 F7200 X100.621 Y67.883 Z2.7
-G0 X81.543 Y67.887
-G0 X81.039 Y68.391
-G0 X70.566 Y98.524
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -7404,6 +7395,15 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M104 T0 S255
+G1 F1500 E-0.8
+G0 F7200 X100.621 Y67.883 Z2.7
+G0 X81.543 Y67.887
+G0 X81.039 Y68.391
+G0 X70.566 Y98.524
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.576 Y99.514 E0
@@ -7890,16 +7890,6 @@ G1 X101.647 Y68.777 E46.54914
 G0 F7200 X101.788 Y68.918
 G0 X101.729 Y69.825
 G92 E0
-;MATEND
-;109 S255
-M104 T1 S255
-G1 F1500 E-2
-G0 F7200 X102.823 Y68.73 Z2.9
-G0 X102.004 Y67.916
-G0 X81.543 Y67.887
-G0 X81.039 Y68.391
-G0 X69.8 Y90.2
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -7915,6 +7905,16 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M104 T1 S255
+G1 F1500 E-2
+G0 F7200 X102.823 Y68.73 Z2.9
+G0 X102.004 Y67.916
+G0 X81.543 Y67.887
+G0 X81.039 Y68.391
+G0 X69.8 Y90.2
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.8 Y109.8 E0.6519
@@ -8423,15 +8423,6 @@ G0 X100.577 Y69.181
 G1 F1800 X100.678 Y69 E35.8512
 G0 F7200 X100.621 Y68.942
 G92 E0
-;MATEND
-;109 S255
-M104 T0 S255
-G1 F1500 E-0.8
-G0 F7200 X100.621 Y67.883 Z3.1
-G0 X81.543 Y67.887
-G0 X81.039 Y68.391
-G0 X70.566 Y104.201
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -8447,6 +8438,15 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M104 T0 S255
+G1 F1500 E-0.8
+G0 F7200 X100.621 Y67.883 Z3.1
+G0 X81.543 Y67.887
+G0 X81.039 Y68.391
+G0 X70.566 Y104.201
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.576 Y103.211 E0
@@ -8930,16 +8930,6 @@ G1 X101.647 Y68.777 E46.52109
 G0 F7200 X101.788 Y68.918
 G0 X101.729 Y69.825
 G92 E0
-;MATEND
-;109 S255
-M104 T1 S255
-G1 F1500 E-2
-G0 F7200 X102.823 Y68.73 Z3.3
-G0 X102.004 Y67.916
-G0 X81.543 Y67.887
-G0 X81.039 Y68.391
-G0 X69.8 Y90.2
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -8955,6 +8945,16 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M104 T1 S255
+G1 F1500 E-2
+G0 F7200 X102.823 Y68.73 Z3.3
+G0 X102.004 Y67.916
+G0 X81.543 Y67.887
+G0 X81.039 Y68.391
+G0 X69.8 Y90.2
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.8 Y109.8 E0.6519
@@ -9469,13 +9469,6 @@ G0 X91.429 Y87.752
 G1 F1800 X91.279 Y87.602 E35.91648
 G0 F7200 X91.221 Y87.548
 G92 E0
-;MATEND
-;109 S255
-M104 T0 S255
-G1 F1500 E-0.8
-G0 F7200 X91.221 Y89.213 Z3.5
-G0 X70.566 Y108.746
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -9491,6 +9484,13 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M104 T0 S255
+G1 F1500 E-0.8
+G0 F7200 X91.221 Y89.213 Z3.5
+G0 X70.566 Y108.746
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.576 Y107.756 E0
@@ -9980,13 +9980,6 @@ G1 X87.734 Y82.69 E46.50751
 G0 F7200 X87.875 Y82.549
 G0 X88.783 Y82.609
 G92 E0
-;MATEND
-;109 S255
-M104 T1 S255
-G1 F1500 E-2
-G0 F7200 X88.783 Y89.213 Z3.7
-G0 X69.8 Y90.2
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -10002,6 +9995,13 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M104 T1 S255
+G1 F1500 E-2
+G0 F7200 X88.783 Y89.213 Z3.7
+G0 X69.8 Y90.2
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.8 Y109.8 E0.6519
@@ -10514,13 +10514,6 @@ G0 X91.429 Y87.752
 G1 F1800 X91.279 Y87.602 E35.24702
 G0 F7200 X91.221 Y87.548
 G92 E0
-;MATEND
-;109 S255
-M104 T0 S255
-G1 F1500 E-0.8
-G0 F7200 X91.221 Y89.213 Z3.9
-G0 X70.566 Y93.07
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -10536,6 +10529,13 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M104 T0 S255
+G1 F1500 E-0.8
+G0 F7200 X91.221 Y89.213 Z3.9
+G0 X70.566 Y93.07
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.576 Y94.06 E0
@@ -11017,13 +11017,6 @@ G1 X87.734 Y82.69 E46.47061
 G0 F7200 X87.875 Y82.549
 G0 X88.783 Y82.609
 G92 E0
-;MATEND
-;109 S255
-M104 T1 S255
-G1 F1500 E-2
-G0 F7200 X88.783 Y89.213 Z4.1
-G0 X69.8 Y90.2
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -11039,6 +11032,13 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M104 T1 S255
+G1 F1500 E-2
+G0 F7200 X88.783 Y89.213 Z4.1
+G0 X69.8 Y90.2
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.8 Y109.8 E0.6519
@@ -11540,14 +11540,6 @@ G0 X100.577 Y69.181
 G1 F1800 X100.678 Y69 E34.79615
 G0 F7200 X100.621 Y68.942
 G92 E0
-;MATEND
-;109 S255
-G1 F1500 E-0.8
-G0 F7200 X100.621 Y67.883 Z4.3
-G0 X81.543 Y67.887
-G0 X81.039 Y68.391
-G0 X70.566 Y97.615
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -11563,6 +11555,14 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+G1 F1500 E-0.8
+G0 F7200 X100.621 Y67.883 Z4.3
+G0 X81.543 Y67.887
+G0 X81.039 Y68.391
+G0 X70.566 Y97.615
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.576 Y98.605 E0
@@ -12109,18 +12109,6 @@ G1 F1800 X114.736 Y82.687 E63.80913
 G1 X114.806 Y82.617
 G0 F7200 X114.431 Y82.689
 G92 E0
-;MATEND
-;109 S255
-M104 T1 S255
-G1 F1500 E-2
-G0 F7200 X115.608 Y83.865 Z4.5
-G0 X116.421 Y83.047
-G0 X116.421 Y82.333
-G0 X102.004 Y67.916
-G0 X81.543 Y67.887
-G0 X81.039 Y68.391
-G0 X69.8 Y90.2
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -12136,6 +12124,18 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M104 T1 S255
+G1 F1500 E-2
+G0 F7200 X115.608 Y83.865 Z4.5
+G0 X116.421 Y83.047
+G0 X116.421 Y82.333
+G0 X102.004 Y67.916
+G0 X81.543 Y67.887
+G0 X81.039 Y68.391
+G0 X69.8 Y90.2
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.8 Y109.8 E0.6519
@@ -12825,12 +12825,6 @@ G0 X92.245 Y88.002
 ;TYPE:SKIN
 G1 F1800 X92.395 Y88.152 E52.79158
 G92 E0
-;MATEND
-;109 S255
-G1 F1500 E-0.8
-G0 F7200 X92.395 Y89.213 Z4.7
-G0 X70.566 Y103.292
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -12846,6 +12840,12 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+G1 F1500 E-0.8
+G0 F7200 X92.395 Y89.213 Z4.7
+G0 X70.566 Y103.292
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.576 Y102.302 E0
@@ -13457,18 +13457,6 @@ G1 F1800 X114.736 Y82.687 E80.62423
 G1 X114.806 Y82.617
 G0 F7200 X114.431 Y82.689
 G92 E0
-;MATEND
-;109 S255
-M104 T1 S255
-G1 F1500 E-2
-G0 F7200 X115.608 Y83.865 Z4.9
-G0 X116.421 Y83.047
-G0 X116.421 Y82.333
-G0 X102.004 Y67.916
-G0 X81.543 Y67.887
-G0 X81.039 Y68.391
-G0 X69.8 Y90.2
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -13484,6 +13472,18 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M104 T1 S255
+G1 F1500 E-2
+G0 F7200 X115.608 Y83.865 Z4.9
+G0 X116.421 Y83.047
+G0 X116.421 Y82.333
+G0 X102.004 Y67.916
+G0 X81.543 Y67.887
+G0 X81.039 Y68.391
+G0 X69.8 Y90.2
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.8 Y109.8 E0.6519
@@ -14173,13 +14173,6 @@ G0 X92.245 Y88.002
 ;TYPE:SKIN
 G1 F1800 X92.395 Y88.152 E52.79158
 G92 E0
-;MATEND
-;109 S255
-M104 T0 S0
-G1 F1500 E-0.8
-G0 F7200 X92.395 Y89.213 Z5.1
-G0 X70.566 Y107.837
-M104 S260
 ;MATBEGIN
 G91                       ; Relative moves.
 G1 E1 F500           ; Quicky extrude about the length of your melt zone.
@@ -14195,6 +14188,13 @@ G1 E105 F2000     ; Quickly load next material 95%.
 G1 E4.5 F2000         ; Slowly load last 5%. -0.5mm as to not put anything on the print, just make sure to account for it in the prime tower
 G90                       ; Abolute moves.
 G92 E0          ; Set extruder position to 0
+;MATEND
+M109 S255
+M104 T0 S0
+G1 F1500 E-0.8
+G0 F7200 X92.395 Y89.213 Z5.1
+G0 X70.566 Y107.837
+M104 S260
 ;TYPE:SUPPORT
 G1 F1500 E0
 G1 F3600 X69.576 Y106.847 E0
