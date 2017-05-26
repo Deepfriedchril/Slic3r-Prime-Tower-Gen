@@ -4,6 +4,11 @@ Configurable prime tower for Slic3r: WIP
 Parsing CURA has more current focus mainly because I want to use my 2:1 extrusion now and because it already generates the prime tower. Cura just handles single nozzle extrusion poorly.
 
 
+This program is aimed at those with 2:1 or "two in one out" extrusion set up.
+
+### What this does currently
+As of right now, this just moves whatever you have in your custom extruder change gcode to after the printer moves to the prime tower location, and removes all unecessary M109 commands. These two changes keep your printer from hanging over your print,melting it, and keeps it from pausing when "heating up" the second hotend.
+
 *note*
 I have not tested this with mutiple parts nor have I extensivly tested it with one part. Use at your own risk. Cura 2.6 is currently in beta testing so some problems may come from that.
 
